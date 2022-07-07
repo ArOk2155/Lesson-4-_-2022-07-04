@@ -248,12 +248,7 @@ namespace Lesson_4___2022_07_04
 
             return GetReverse(array);
         }
-
     }
-
-
-
-
 }
 
        
