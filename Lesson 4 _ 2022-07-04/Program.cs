@@ -10,7 +10,7 @@ namespace Lesson_4___2022_07_04
             //Console.WriteLine(GetMaxElementOfArray(RandomArray(10)));
             //Console.WriteLine(GetMinIndexOfArray(RandomArray(10)));
             //Console.WriteLine(GetMaxIndexOfArray(RandomArray(10)));
-            //Console.WriteLine(GetSumOddIndices(RandomArray(5)));
+            Console.WriteLine(GetSumOddIndices(RandomArray(5)));
             //GetReverse(RandomArray(5));
             //Console.WriteLine(GetCountOddElements(RandomArray(5)));
             //SwapArray(RandomArray(6));
@@ -23,7 +23,7 @@ namespace Lesson_4___2022_07_04
         {
             for (int i = 0; i < array.Length; i++)
             {
-                Console.Write(array[i] + " ");
+                Console.Write($"{array[i]} ");
             }
 
             Console.WriteLine();
@@ -147,7 +147,7 @@ namespace Lesson_4___2022_07_04
 
             for (int i = 0; i < array.Length; i++)
             {
-                if (i % 2 == 0)
+                if (i % 2 != 0)
                 {
                     sum += array[i];
                 }
