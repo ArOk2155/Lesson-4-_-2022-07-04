@@ -6,16 +6,6 @@ namespace Lesson_4___2022_07_04
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine(GetMinElementOfArray(RandomArray(10)));
-            //Console.WriteLine(GetMaxElementOfArray(RandomArray(10)));
-            //Console.WriteLine(GetMinIndexOfArray(RandomArray(10)));
-            //Console.WriteLine(GetMaxIndexOfArray(RandomArray(10)));
-            Console.WriteLine(GetSumOddIndices(RandomArray(5)));
-            //GetReverse(RandomArray(5));
-            //Console.WriteLine(GetCountOddElements(RandomArray(5)));
-            //SwapArray(RandomArray(6));
-            //SortBubble(RandomArray(6));
-            //DescendingOrder(RandomArray(6));
 
         }
 
@@ -40,8 +30,6 @@ namespace Lesson_4___2022_07_04
             {
                 array[i] = random.Next(1, 10);
             }
-
-            PrintArray(array);
 
             return array;
         }
@@ -71,34 +59,14 @@ namespace Lesson_4___2022_07_04
         //1. Find the minimum element of an array
         static int GetMinElementOfArray(int [] array)
         {      
-            int result = array[0];
-
-            for (int i = 1; i < array.Length; i++)
-            {
-                if (array[i] < result)
-                {
-                    result = array[i];
-                }             
-            }
-
-            return result;
+            return array[GetMinIndexOfArray(array)];
         }
 
 
         //2. Find the maximum element of an array
         static int GetMaxElementOfArray(int[] array)
         {
-            int result = array[0];
-
-            for (int i = 1; i < array.Length; i++)
-            {
-                if (array[i] > result)
-                {
-                    result = array[i];
-                }
-            }
-
-            return result;
+            return array[GetMaxIndexOfArray(array)];
         }
 
 
@@ -145,12 +113,9 @@ namespace Lesson_4___2022_07_04
         {
             int sum = 0;
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 1; i < array.Length; i+=2)
             {
-                if (i % 2 != 0)
-                {
                     sum += array[i];
-                }
             }
 
             return sum;
@@ -160,8 +125,8 @@ namespace Lesson_4___2022_07_04
         //6. Make an array reverse (an array in the opposite direction)
         static int[] GetReverse(int[] array)
         {
-            var count = 1;
-            var newArray = new int[array.Length];
+            int count = 1;
+            int[] newArray = new int[array.Length];
             
             for (int i = 0; i < array.Length; i++)
             {
@@ -169,7 +134,6 @@ namespace Lesson_4___2022_07_04
                 count++;
             }
            
-            //PrintArray(newArray);
             return newArray;
         }
 
@@ -194,17 +158,14 @@ namespace Lesson_4___2022_07_04
         //8. Swap the first and second half of the array, for example, for an array of 1 2 3 4, the result is 3 4 1 2, or for 1 2 3 4 5 -> 4 5 3 1 2.
         static int[] SwapArray(int[] array)
         {
-            int lenCenter = array.Length / 2;
+            int half = array.Length - array.Length / 2;
 
-            int half = array.Length - lenCenter;
-
-            for (int i = 0; i < lenCenter; i++)
+            for (int i = 0; i < array.Length / 2; i++)
             {
                 Swap(ref array[i], ref array[half]);
                 half++;
             }
 
-            //PrintArray(array);
             return array;
         }
 
@@ -213,8 +174,7 @@ namespace Lesson_4___2022_07_04
         static int[] SortBubble(int[] array)
         {
             Sort(array);
-            
-            //PrintArray(array);          
+                 
             return array;
         }
 
@@ -244,7 +204,6 @@ namespace Lesson_4___2022_07_04
         static int[] DescendingOrder(int[] array)
         {
             SortInsertion(array);
-            //PrintArray(GetReverse(array));
 
             return GetReverse(array);
         }
